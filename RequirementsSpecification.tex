@@ -205,8 +205,17 @@
 						...
 
 				\subsection{Performance Requirements}
-					\paragraph\indent
-						...
+				The system must:
+				\begin{itemize}
+				\item Be interactive to user input within 2 seconds.
+				\item Acquire the user's location with an accuracy within an 8m radius.
+				\item Display the user's location on a map within 3 seconds after launching.
+				\item Generate routes for users within 2 seconds.
+				\item Update the user's location every second when navigating.
+				\item Give a warning or indication if the processes take longer than anticipated.
+				\item Display a message if an error is encountered.
+				\end{itemize}
+
 
 				\subsection{Design Constraints}
 					\paragraph\indent
@@ -214,8 +223,29 @@
 	
 				\subsection{Software System attributes}
 					\paragraph\indent
-						...
-
+				
+				\subparagraph{Reliability}
+				The system must be able to all its functions under the stated conditions and produce correct and consistent results. 
+				\subparagraph{Portability}
+				\begin{itemize}
+				\item The system must be able to run on different operating environments or platforms i.e. the system must be able to run on iOS and android.
+				\item The system must be able to run on different mobile devices such as smartphones and tablets.
+				\end{itemize}
+				\subparagraph{Robustness}
+				The system must be able to perform its required functions under rough or exceptional conditions. Since the system heavily depend on newtwork connections, however the application must be able to perform basic navigation functions offline.
+				\subparagraph{Security}
+				\begin{itemize}
+				\item Only administrators must be able to add data to the system.
+				\item The location of the user must not be broadcasted or used by another application. 
+				\item All data transmitted between subsystems must be encrypted.
+				\end{itemize}
+				\subparagraph{Reusability}
+				The system must be reusable, it must permit itself to be used in a similar or different context with or without extension or customization.
+				\subparagraph{Efficiency}
+				The system must be able to perform its functions and produce desired results with minimum expenditure of time and resources.
+				\subparagraph{Availability}
+				The system must be always available provided that the minimum hardware requirements are met.
+				
 				\subsection{Other Requirements}
 					\paragraph\indent
 						...
