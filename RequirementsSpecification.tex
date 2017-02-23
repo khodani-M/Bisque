@@ -213,10 +213,34 @@ Users will be able to use their handheld devices to navigate around the campus i
 
 				\subsection{External Interface Requirements}
 					\paragraph\indent
-					    \subparagraph{System Interfaces}
+					    Since the prototype will most likely only be developed for Android systems and later expanded to iOS and other systems, this part of the specification will primarily assume the Android OS is the operating system for the system.
+					    \subparagraph{System Interfaces} 
+					     - The app will require system privileges to make use of certain features and information provided by the Android OS.
+					    \begin{enumerate}
+					        \item  \textbf{Communication Protocols}\\
+					        The app will be dependant on making use of the connection to the internet provided through the device's connection to Wi-fi or mobile data. This will be necessary for the main functions such as mapping, location tracking, navigation and heatmaps (for traffic avoidance) to work.
+					        \item \textbf{GPS}\\
+					        We will be dependant on Android's GPS and location services to be able to accurately track both where the users are and where they are going. Access to this feature forms the backbone of the app as nearly all our subsystems are dependant on it.
+					    \end{enumerate}
 
 					    \subparagraph{User Interfaces}
-
+					     - There will be a unified user interface which can be broken down into 5 subsystems all of which will be displayed simultaneously. The 6th subsystem (Suggestions) will tie into the navigational subsystem.
+					    \begin{enumerate}
+					        \item \textbf{Navigation}\\
+					        Users will use the navigation subsystem to select a new destination, as well as deciding on their starting point. This information will be sent through to the mapping and location subsystems. It will eventually receive output from the mapping subsystem in the form of a route to follow which it will forward on to the display subsystem to display on screen for users.
+					        \item \textbf{Location}\\
+					        Users will passively interact with the location subsystem as it will autonomously track the device's location for input which the Navigation, Mapping, and Heatmap subsystems will use. It will continuously update the device's location and provide it as output to the mapping and/or navigational subsystem depending on context.
+					        \item \textbf{Mapping}\\
+					        This will calculate the route which the user has to take. It will accept input from the Location, Heatmaps, and the Navigation subsystems and then use that information to calculate the best possible route which it will provide as output.
+					        \item \textbf{Heatmaps}\\
+					        This will make use of packet sniffing or a similar technique to discover how many people are connected to routers and are gathered in certain areas at certain times. It will compare this to it's own averages gathered over time to calculate whether or not an alternative route or warning should be displayed due to high amounts of foot traffic in certain parts of campus
+					        \item \textbf{Games and Events}\\
+					        These events and games will be managed by users with creative privileges on the app. It's suggested that a form of validation and moderation is placed either on the people given creative privileges or on the events and games that they wish to add to the app. These games and events will then be added into the map so that they can be displayed and interacted with by 'normal' users
+					        \item \textbf{Suggestive Searching}
+					        This will be a minor add-on to the Navigational Subsystem which will suggest new locations and events to users based on their existing searches.
+					        
+					        
+					    \end{enumerate}
     					\subparagraph{Hardware Interfaces}
     						\begin{enumerate}
     						    \item \textbf{An android phone or tablet} \\
@@ -227,6 +251,14 @@ Users will be able to use their handheld devices to navigate around the campus i
     						\end{enumerate}
     						
     					\subparagraph{Software Interfaces}
+        					\begin{enumerate}
+        					    \item \textbf{Google Maps API}\\
+        					    This would be our preference of choice to use as the basis for the Navigation and Mapping systems as much of the functionality that NavUp requires for the Navigation and Mapping of UP is already available in this API.
+        					    \item \textbf{Other}\\
+        					    Other libraries and API's will likely be added to the project later to cater for the games and events once those features are better fleshed out
+        					    
+        					    
+        					\end{enumerate}
 
 						\subparagraph{Communications Interfaces}
     						\begin{enumerate}
@@ -246,7 +278,19 @@ Users will be able to use their handheld devices to navigate around the campus i
     						
 				\subsection{Functional Requirements}
 					\paragraph\indent
-						...
+					\begin{itemize}
+						    \item \textbf{Requirement 1 (R1)}\\ The system shall allow users to create a profile to log in and out of, or it should make another allowance for their personal data to be associated with them. This data could alternatively just be stored locally on their device, similarly to a cookie for a website. The personal data is needed to store users personal searches which are needed for the Suggestions subsystem. Once the users have entered their details a request is sent to the server and they will be logged in to the system if their details were correct. If they aren't then an error will be generated declaring that their details were incorrect. \textbf{Priority : Important but not vital}
+						    \item \textbf{Requirement 2 (R2)}\\ Regardless of the task that a user is performing, the system shall always generate an error if the device has no connection to the internet. The error will be dismissable but until a connection to the internet is restored, the system shall only have access to partial functionality. \textbf{Priority : Critical}
+						    \item \textbf{Requirement 3 (R3)}\\ The system shall provide users with the ability to select a starting location. Users can either have the app automatically detect their location or they can manually enter a location of their choice. The Location Subsystem will have to perform a validity check on manual addresses to check that they are real. If they aren't an error will be generated declaring that the address couldn't be found. \textbf{Priority : Critical}
+						    \item \textbf{Requirement 4 (R4)}\\ The system shall provide users with the ability to select a destination. Users will have to manually enter a destination. The Location Subsystem will have to perform a validity check on the address to check that they are real.  If they aren't an error will be generated declaring that the address couldn't be found.  \textbf{Priority : Critical}
+						    \item \textbf{Requirement 5 (R5)}\\ The system shall provide users with the ability to request a route between the starting location and destination. The system will send both points to the Mapping Subsystem after they have been validated by the Location Subsystem. The mapping system will then calculate the optimal route between the two points. This route will be displayed as output to the user. If no route is available then the system will generate an error describing so. \textbf{Priority : Critical}
+						    \item \textbf{Requirement 6 (R6)}\\ The system shall create an alert for users for if the heatmaps subsystem detects there is high traffic on the shortest route or if there are other hazards on campus. The values tallied by the Heatmaps Subsystem will have to compare the real-time values to recorded averages to decide whether there is actually traffic or not. If the Heatmaps Subsytem can't receive any data from the system it should generate an error describing that the traffic feature is offline. \textbf{Priority : Important but not vital}
+						    \item \textbf{Requirement 7 (R7)}\\ The system shall also provide the option of calculating a detour in the previous scenario if the user wants. This links back to the Mapping Subsystem which can use an intermediary location to create a detour between the two points. \textbf{Priority : Important but not vital}
+						    \item \textbf{Requirement 8 (R8)}\\ The system shall suggest new locations on campus to users based on their searches. These searches will be tied to their profile and the suggestions will be built off of that. This system should generate an error if the file containing user's searches can't be accessed. \textbf{Priority : Nice to have, not vital}
+						    \item \textbf{Requirement 9 (R9)}\\ The system shall allow 'content creation' users to create events and games for other users to interact with. Additionally it will also allow lecturers to create a venue for lectures, tutorials or practicals in the case of unforeseen circumstances making it that normal arrangements don't hold. In the scenario that events can't be created or events and games can no longer be accessed, the system shall generate an appropriate error. 
+						    \textbf{Priority : Nice to have, not vital}
+						    \item \textbf{Requirement 10 (R10)} \\ The system shall allow users to interact with the events and games created by content creation users. If these events can't be accessed the system will generate an error.
+						\end{itemize}
 
 				\subsection{Performance Requirements}
 				The system must:
