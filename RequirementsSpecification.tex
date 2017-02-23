@@ -3,6 +3,9 @@
 \usepackage{graphicx}
 \usepackage{grffile}
 \usepackage{babel}
+\usepackage{parskip}
+\textwidth = 426pt
+\oddsidemargin = 17pt
 
 \author{
 	Mufamadi, Khodani\\
@@ -48,67 +51,62 @@
 	
 
 	\section{Introduction}
-		\paragraph\indent
 			
 
 		\subsection{Purpose}
-			\paragraph\indent
-			The purpose of this document is to give a detailed description of the requirements for the NavUP System, it  will illustrate the purpose and complete declaration for the development of the system. It will also explain system constraints, interfaces and interactions with other external applications. This document is primarily intended to be proposed to a client for its approval 					and as well as the stakeholders and interested parties in such a system.This document  will also serve as a reference for developing the first version of the system for the development team.
+			The purpose of this document is to give a detailed description of the requirements for the NavUP System, it  will illustrate the purpose and complete declaration for the development of the system. It will also explain system constraints, interfaces and interactions with other external applications. This document is primarily intended to be proposed to a client for its approval, as well as the stakeholders and other interested parties. This document  will also serve as a reference for developing the first version of the system for the development team.
 
 		\subsection{Scope}
-			\paragraph\indent
-			The “NavUP System” is a  WiFi-based mobile navigation application which helps users navigate on campus to various venues to attend meetings , classes or shops, restaurants and ablution facilities based on the user’s current position and other specifications like restrictions specified by the user such as accessibility for people with disabilities or avoiding pedestrian traffic 					congestion. The application should be free to download from either a mobile phone application store or similar services.\\
-			Furthermore, the software needs the campus wi-fi  or Internet and GPS connection to fetch and display results to users on their smart devices. The current location of the user should be determined both outdoors and indoors ,Various activities that uses location and movement of users can also be integrated.
+			NavUP System is a WiFi-based mobile navigation application which helps users navigate to various venues, such as lecture halls, shops, restaurants and ablution facilities located on the University of Pretoria's Hatfield campus. Navigation is based on a user’s current location, accessibility needs and the pedestrian traffic information obtained from other users' locations. The application should be free to download from either a mobile phone application store or similar services.\\
+			\\
+			The system will make use of the university's WiFi infrastructure as well as the device's internet and GPS functionality to fetch and display results to users on their smart devices. The current location of the user should be determined both outdoors and indoors. Various activities that use location and movement of users can also be integrated.
 
 		\subsection{Definition, Acronyms, and Abbreviations}
-			\paragraph\indent
 				This section of the SRS contains definitions, acronyms and abbreviations for the terminology used to describe our system throughout this document.
+				\\
+				\\
 				\begin{tabular}{ |p{3cm}|p{9cm}|  }
 				\hline
 				\textbf{Term} & \textbf{Definition}\\
 				\hline
-				User & Someone who interacts with the mobile phone application \\
+				User & An actor that interacts with the mobile phone application \\
 				\hline
-				Administrator & System administrator who is given specific permission for managing and controlling the system\\
+				Administrator & An actor that is given specific permission for managing and controlling the system\\
 				\hline
 				\end{tabular}
 
 		\subsection{References}
-			\paragraph\indent
 			[1] IEEE Software Engineering Standards Committee, "IEEE Std 830-1998, IEEE Recommended Practice for Software Requirements Specifications", October 20,1998
 
 		\subsection{Overview}
-			\paragraph\indent
 				\begin{tabular}{ |p{3cm}||p{11cm}|  }
 				\hline
-				\multicolumn{2}{|c|}{This SRS document describes the NavUp system. It is divided into three major 							sections} \\
+				\multicolumn{2}{|c|}{This SRS document describes the NavUp system. It is divided into three major sections} \\
 				\hline
-				Section 1 & This section describes the document purpose and the project scope.This section also includes 						the definitions, abbreviations, and references used throughout this document \\
+				Section 1 & This section describes the document purpose and the project scope.This section also includes the definitions, abbreviations, and references used throughout this document \\
 				\hline
-				Section 2 & This section provides the product Persperctive and the product functions,And also describes 						the uses of NavUp and the user characteristics.The Constraints, assumptions and dependencies for NavUp					are described in this section\\
+				Section 2 & This section provides the product Persperctive and the product functions,And also describes the uses of NavUp and the user characteristics.The Constraints, assumptions and dependencies for NavUp are described in this section\\
 				\hline
 				Section 3 & This section describes the external interface requirements for the NavUp system and a list of functional requirements and performance requirements .Design constraints and software system attributes and as well as other requirements for the NavUp system are included in this section.\\
 				\hline
 				\end{tabular}
-
+	\newpage
 	\section{Overall Description}
-		\paragraph\indent
-			...
 		
 		\subsection{Product Perspective}
-			\paragraph\indent
 			
 				\subsubsection{System Interfaces}
-						 The mobile application will need to communicate to the GPS and Wi-Fi application within the mobile phone, which in turn communicates with the physical GPS device to find the location of the user. The GPS and Wi-Fi will provide the mobile application with the location of the user.
+				The mobile application will need to communicate to the GPS system service within the mobile device, which will in turn communicate with the physical GPS device to find the location of the user. The application will also make use of WiFi connectivity to triangulate the user's location, especially in situations where the user is indoors and the GPS is unreliable.
 To enable the system to provide users with information regarding venues, points of interest, events and activities the mobile application will have to communicate with the database. The mobile application will only use the database to get, add and modify data.
-				\includegraphics{Block Diagram.png}
+				\begin{center}
+										\includegraphics[scale=0.8]{Block Diagram.png}								
+				\end{center}
+
 
 				\subsubsection{User Interfaces}
-					\paragraph\indent
-						The system user interface must enable the user to perform basic navigation functions. Basic navigational functions required include searching for locations, saving locations and providing directions to a location. The system user interface should include functionality to visualise information related to pedestrian traffic on campus.
+						The system user interface must enable the user to perform basic navigation functions. Basic navigational functions required include searching for venues and providing directions to said venues. The system user interface should include functionality to visualise information related to pedestrian traffic on campus.
 
 				\subsubsection{Hardware Interfaces}
-				    \paragraph\indent
 				    Hardware interfaces that we shall make use of:
 						\begin{itemize}
 						    \item An android phone or tablet.
@@ -116,12 +114,14 @@ To enable the system to provide users with information regarding venues, points 
 						\end{itemize}
 
 				\subsubsection{Software Interfaces}
-					\paragraph\indent
-						The mobile application must communicate with GPS application in order to obtain the geographical location of the user when the user is not inside a building, however if the user is inside a building – the mobile application must communicate with the router software to perform triangulation to find the exact location of the user inside the building.
-						The mobile application must communicate with the database software to lookup events and  activies of interest to the user and provide information related to pedestrian traffic on campus.
+				\begin{itemize}
+					\item The mobile application will communicate with the GPS system service in order to obtain the geographical location of the user when the user is not inside a building.
+					\item The mobile application will communicate with the university's router network to perform triangulation in order to find an approximate location of the user inside the building.
+					\item The mobile application will communicate with the database to lookup events \& activities of interest and display them to the user to the user.
+				\end{itemize}
+						
 
 				\subsubsection{Communications Interfaces}
-				    \paragraph\indent
 				    Communications that we shall make use of:
 					\begin{itemize}
 					    \item Cellular networks
@@ -131,59 +131,55 @@ To enable the system to provide users with information regarding venues, points 
 					\end{itemize}
 
 				\subsubsection{Memory}
-					\paragraph\indent
-					The system must be memory efficient due to the fact that mobile device do not have large amounts of memory and the application must be able run simultaneously with other applications.  
-                    Typical android and iOS devices have 1GB of RAM or more, therefore to prevent overloading the operating system the application must use at most 50MB of RAM while the application is runnuing.
-                    The application must use 50MB of hard disk drive space.
+					The system must be memory efficient due to the fact that standard mobile devices do not have large amounts of memory and the application must be able to run simultaneously with other applications.  
+                    Typical android and iOS devices have 1GB of RAM or more, therefore to prevent overloading the operating system the application must use at most 150MB of RAM while the application is running.
+                    The application must not use more than 50MB of hard disk drive space.
 
 		\subsection{Product Functions}
-			\paragraph\indent
             Users will be able to use their handheld devices to navigate around the campus if they having trouble to find venues. The system will assist the user to avoid pedestrian traffic and find the quickest route to their desired venue. The system will be able to locate the user’s current location either inside or outside the building by the use of the Wi-Fi access points. The system will store different types of information such as social events and activities, venues using multiple types of devices and services.The different types of information will be store on database. 
 
 		\subsection{User Characteristics}
-			\paragraph\indent
-				NavUP should have three user groups: A student or staff member, a administrator, and a guest user.
+				NavUP should have three user groups: A Students/Staff Member, Administrators, and a Guests.
 				\subparagraph{Students and staff members}
     				\begin{itemize}
-    					\item Students and staff members are registered, and have student numbers.
-    					\item Students are likely to be young (Below the age of 30)
+    					\item Students and staff members are registered and have numbers that can be used to identify them.
+    					\item Students are likely to be young (Below the age of 30).
     					\item Students and staff members are likely to have a high level of education.
     					\item Students and staff members should have a relatively high level of technical experience, and therefore be able to use and navigate a relatively complex app.
     				\end{itemize}
 				\subparagraph{Guest Users}
     				\begin{itemize}
     					\item Guests are unregistered.
-    					\item The technical level and education of a guest is unknown. It might be difficult for them to navigate a complicated interface.
+    					\item The technical level and education of a guest is unknown. 
+    					\item It might be difficult for them to navigate a complicated interface.
     
     				\end{itemize}
 				\subparagraph{Administrators}
     				\begin{itemize}
     					\item Administrators should have a high level of technical expertise.
-    					\item Administrators likely have some form of identification, such as a student number.
-    					
+    					\item Administrators likely have some form of identification, such as staff numbers.
     				\end{itemize}
 		\subsection{Constraints}
                 The constraints that we must work around are:
 			    \begin{itemize}
 			        \item \textbf{Cost} - We do not have the funds to pay for expensive libraries and tools.
-			        \item \textbf{Time} - Most of us are third year and honours students, and so we do not have much time to work on the project. Additionally, we only have one semester to do this.
-			        \item \textbf{Skills} - Our skills are varied, but mostly undeveloped, which limits the technical complexity of our solution.
-			        \item \textbf{Scope} - Our scope is defined as a navigation system for the University of Pretoria, and so our solution should be limited as such.
+			        \item \textbf{Time} - We only have some part of a semester semester to design and implement this system. Another thing to consider is that our work force is comprised of third year and Honours students who are have to divide their time and attention to different modules , which is restrictive in terms of the actual work time for the project.
+			        \item \textbf{Skills} - Our skills are varied, but mostly undeveloped, which may limit the utility of our solution.
+			        \item \textbf{Scope} - Our scope is defined as a navigation system for the University of Pretoria, and so our solution will be limited as such.
 			    \end{itemize}
 
 		\subsection{Assumptions and Dependencies}
-			\paragraph\indent
-				\begin{large}$2.5.1 $ \textbf{Assumptions}\end{large}
+		\subsubsection{Assumptions}
 	\begin{itemize}
 		\item The application is free for all users.
 		\item Users will access the application through hand-held devices.
-		\item The system will be available 24/7
+		\item The system will be available 24/7.
 		\item The system will be simple.
 		\item The system can locate a user inside and outside the building.
 		\item The system can detect pedestrian traffic around the campus.
 		\item User friendly system.
 		\item Users are technically competent.
-		\item Access to Wi-Fi.
+		\item The system and its user will have access to the university's Wi-Fi infrastructure.
 		\item Users operating system is either Android or IOS.
 		\item Users will be willing to provide personal information.
 
@@ -191,34 +187,33 @@ To enable the system to provide users with information regarding venues, points 
 
 
 \begin{large}
-	$2.5.2 $ \textbf{Dependencies}
+	\subsubsection{Dependencies}
 	\end{large}
 	\begin{itemize}
-		\item Teams time and abilities. 
+		\item Teams' time and abilities. 
 		\item Feedback from stakeholders. 
-		\item A database to store user’s history, location and social activities
+		\item A database to store social activities and different venues.
 		\item The application needs access to WiFi.
 		\item Adequate advertisement. 
 
 	\end{itemize}
+	\newpage
 
 	\section{Specific Requirements}
-		\paragraph\indent
 				\subsection{External Interface Requirements}
-					\paragraph\indent
 					    Since the prototype will most likely only be developed for Android systems and later expanded to iOS and other systems, this part of the specification will primarily assume the Android OS is the operating system for the system.
-					    \subparagraph{System Interfaces} 
-					     - The app will require system privileges to make use of certain features and information provided by the Android OS.
-					    \begin{enumerate}
+					    \subsubsection{Interfaces} 
+					     The app will require system privileges to make use of certain features and information provided by the Android OS.
+					    \begin{itemize}
 					        \item  \textbf{Communication Protocols}\\
-					        The app will be dependant on making use of the connection to the Internet provided through the device's connection to Wi-fi or mobile data. This will be necessary for the main functions such as mapping, location tracking, navigation and heatmaps (for traffic avoidance) to work.
+					        The system will be dependant on making use of the connection to the Internet provided through the device's connection to WiFi or mobile data. This will be necessary for the main functions such as mapping, location tracking, navigation and heatmaps (for traffic avoidance) to work.
 					        \item \textbf{GPS}\\
-					        We will be dependant on Android's GPS and location services to be able to accurately track both where the users are and where they are going. Access to this feature forms the backbone of the app as nearly all our subsystems are dependant on it.
-					    \end{enumerate}
+					        The system will be dependant on the device's GPS system services to be able to accurately track both where the users are and where they are going. Access to this feature forms the backbone of the app as nearly all our subsystems are dependant on it.
+					    \end{itemize}
 
-					    \subparagraph{User Interfaces}
-					     - There will be a unified user interface which can be broken down into 5 subsystems all of which will be displayed simultaneously. The 6th subsystem (Suggestions) will tie into the navigational subsystem.
-					    \begin{enumerate}
+					    \subsubsection{User Interfaces}
+					     There will be a unified user interface which can be broken down into 5 subsystems all of which will be displayed simultaneously. The 6th subsystem (Suggestive Searching) will tie into the navigational subsystem.\\
+					    \begin{itemize}
 					        \item \textbf{Navigation}\\
 					        Users will use the navigation subsystem to select a new destination, as well as deciding on their starting point. This information will be sent through to the mapping and location subsystems. It will eventually receive output from the mapping subsystem in the form of a route to follow which it will forward on to the display subsystem to display on screen for users.
 					        \item \textbf{Location}\\
@@ -226,47 +221,41 @@ To enable the system to provide users with information regarding venues, points 
 					        \item \textbf{Mapping}\\
 					        This will calculate the route which the user has to take. It will accept input from the Location, Heatmaps, and the Navigation subsystems and then use that information to calculate the best possible route which it will provide as output.
 					        \item \textbf{Heatmaps}\\
-					        This will make use of packet sniffing or a similar technique to discover how many people are connected to routers and are gathered in certain areas at certain times. It will compare this to it's own averages gathered over time to calculate whether or not an alternative route or warning should be displayed due to high amounts of foot traffic in certain parts of campus
+					        This will make use of information provided by the university's network to discover how many people are connected to routers in certain areas at particular times. It will compare this to it's own averages gathered over time to calculate whether or not an alternative route or warning should be displayed due to high amounts of pedestrian traffic in certain parts of campus.
 					        \item \textbf{Games and Events}\\
-					        These events and games will be managed by users with creative privileges on the app. It's suggested that a form of validation and moderation is placed either on the people given creative privileges or on the events and games that they wish to add to the app. These games and events will then be added into the map so that they can be displayed and interacted with by 'normal' users
-					        \item \textbf{Suggestive Searching}
+					        These events and games will be managed by administrators who are given more privileges. It's suggested that a form of validation and moderation is placed either on the people given these privileges or on the events and games that they wish to add to the system. These games and events will then be added into the map so that they can be displayed and interacted with by the users.
+					        \item \textbf{Suggestive Searching}\\
 					        This will be a minor add-on to the Navigational Subsystem which will suggest new locations and events to users based on their existing searches.	        
 					        
-					    \end{enumerate}
-    					\subparagraph{Hardware Interfaces}
-    						\begin{enumerate}
+					    \end{itemize}
+    					\subsubsection{Interfaces}
+    						\begin{itemize}
     						    \item \textbf{An android phone or tablet} \\
-    						    Android will be the most common device used, and will likely be the only device we develop a solution for. There are android devices with many varying specs, but we will focus on newer models in order to simplify the prototype. \\
-    						    Tablets are not used often for navigation, but due to the nature of Android the app will work there as well.    						    
+    						    Android devices are the most commonly used devices, so development will initially focus on these devices. There are android devices with many varying specifications, but we will focus on newer models in order to simplify the prototype. \\
     						    \item \textbf{An iPhone or iPad} \\
-    						    It is possible but unlikely that we develop an app for iOS, as only a small percentage of staff and students use iPhones or iPads.
-    						\end{enumerate}
+    						    iOS devices are not focused on initially due to the face that only a small percentage of staff and students use iPhones or iPads.
+    						\end{itemize}
     						
-    					\subparagraph{Software Interfaces}
-        					\begin{enumerate}
+    					\subsubsection{Software Interfaces}
+        					\begin{itemize}
         					    \item \textbf{Google Maps API}\\
-        					    This would be our preference of choice to use as the basis for the Navigation and Mapping systems as much of the functionality that NavUp requires for the Navigation and Mapping of UP is already available in this API.
+        					    This would be our tool of choice as it covers the basis for navigation and mapping subsystems, which NavUp requires for successful implementation.
         					    \item \textbf{Other}\\
-        					    Other libraries and API's will likely be added to the project later to cater for the games and events once those features are better fleshed out
-        					    
-        					    
-        					\end{enumerate}
+        					    Other libraries and API's will then be added to the project later to cater for any extensions once our core features have been implemented.
+        					\end{itemize}
 
-						\subparagraph{Communications Interfaces}
-    						\begin{enumerate}
+						\subsubsection{Interfaces}
+    						\begin{itemize}
     						    \item \textbf{Cellular networks} \\
-    						    We will use cellular networks for downloading and uploading data and information required to use the app, such as user credentials, heat-maps, and routing. \\
+    						    We will use cellular networks in conjunction with WiFi to transmit data such as user credentials, heatmaps, and routing which required to use the app. \\
     						    
     						    \item \textbf{Global Positioning Satellites (GPS)} \\
-    						    We might use GPS to locate the device for heat-map generation and navigation.    						    
+    						    We will make use GPS to locate the device for heat-map generation and navigation.    						    
     						    \item \textbf{Wireless networking (WiFi)} \\
-    						    WiFi will be used where possible to download and upload data similar to cellular networks. WiFi will also be used to locate the device similar to GPS, especially inside where GPS connection may be poor.    						    
+	    						    WiFi will be used to locate the device similar to GPS, especially inside where GPS connection may be poor. WiFi will also be used where possible to download and upload data similar to cellular networks. 
     						    \item \textbf{E-mail} \\
-    						    We may use email for registration and login, as well as passing information on to the user.  \\
-    						    \textbf{Input}: The user's email address. \\
-    						    \textbf{Output}: An email to the user containing information.    						    
-    						    
-    						\end{enumerate}
+    						    We will use email for registration and login, which will then allow us to identify different users.  \\
+    						\end{itemize}
     						
 				\subsection{Functional Requirements}
 					\begin{itemize}
@@ -276,7 +265,7 @@ To enable the system to provide users with information regarding venues, points 
 					    \item \textbf{Requirement 4 (R4)}\\ The system shall provide users with the ability to select a destination. Users will have to manually enter a destination. The Location Subsystem will have to perform a validity check on the address to check that they are real.  If they aren't an error will be generated declaring that the address couldn't be found.  \textbf{Priority : Critical}
 					    \item \textbf{Requirement 5 (R5)}\\ The system shall provide users with the ability to request a route between the starting location and destination. The system will send both points to the Mapping Subsystem after they have been validated by the Location Subsystem. The mapping system will then calculate the optimal route between the two points. This route will be displayed as output to the user. If no route is available then the system will generate an error describing so. \textbf{Priority : Critical}
 					    \item \textbf{Requirement 6 (R6)}\\ The system shall create an alert for users for if the heatmaps subsystem detects there is high traffic on the shortest route or if there are other hazards on campus. The values tallied by the Heatmaps Subsystem will have to compare the real-time values to recorded averages to decide whether there is actually traffic or not. If the Heatmaps Subsytem can't receive any data from the system it should generate an error describing that the traffic feature is offline. \textbf{Priority : Important but not vital}
-					    \item \textbf{Requirement 7 (R7)}\\ The system shall also provide the option of calculating a detour in the previous scenario if the user wants. This links back to the Mapping Subsystem which can use an intermediary location to create a detour between the two points. \textbf{Priority : Important but not vital}
+					    \item \textbf{Requirement 7 (R7)}\\ The system shall also provide the option of calculating a detour in the previous scenario if the user wants. This links back to the Mapping Subsystem which can use an intermediary location to create a detour between the two points. \textbf{Priority : Important but not vital}
 					    \item \textbf{Requirement 8 (R8)}\\ The system shall suggest new locations on campus to users based on their searches. These searches will be tied to their profile and the suggestions will be built off of that. This system should generate an error if the file containing user's searches can't be accessed. \textbf{Priority : Nice to have, not vital}
 					    \item \textbf{Requirement 9 (R9)}\\ The system shall allow 'content creation' users to create events and games for other users to interact with. Additionally it will also allow lecturers to create a venue for lectures, tutorials or practicals in the case of unforeseen circumstances making it that normal arrangements don't hold. In the scenario that events can't be created or events and games can no longer be accessed, the system shall generate an appropriate error. 
 					    \textbf{Priority : Nice to have, not vital}
@@ -331,7 +320,6 @@ To enable the system to provide users with information regarding venues, points 
 					\item
 					The application is constrained to the University of Pretoria’s campuses.
 					\end{enumerate}
-	
 				\subsection{Software System attributes}
 					\paragraph\indent
 				
