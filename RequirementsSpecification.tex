@@ -1,9 +1,11 @@
 
 \documentclass[english]{article}
 
+
 \usepackage{graphicx}
 \usepackage{grffile}
 \usepackage{babel}
+\usepackage{parskip}
 
 \author{
 	Mufamadi, Khodani\\
@@ -49,20 +51,17 @@
 	
 
 	\section{Introduction}
-		\paragraph\indent
 			
 
 		\subsection{Purpose}
-			\paragraph\indent
 			The purpose of this document is to give a detailed description of the requirements for the NavUP System, it  will illustrate the purpose and complete declaration for the development of the system. It will also explain system constraints, interfaces and interactions with other external applications. This document is primarily intended to be proposed to a client for its approval 					and as well as the stakeholders and interested parties in such a system.This document  will also serve as a reference for developing the first version of the system for the development team.
 
 		\subsection{Scope}
-			\paragraph\indent
 			The “NavUP System” is a  WiFi-based mobile navigation application which helps users navigate on campus to various venues to attend meetings , classes or shops, restaurants and ablution facilities based on the user’s current position and other specifications like restrictions specified by the user such as accessibility for people with disabilities or avoiding pedestrian traffic 					congestion. The application should be free to download from either a mobile phone application store or similar services.\\
+			\\
 			Furthermore, the software needs the campus wi-fi  or Internet and GPS connection to fetch and display results to users on their smart devices. The current location of the user should be determined both outdoors and indoors ,Various activities that uses location and movement of users can also be integrated.
 
 		\subsection{Definition, Acronyms, and Abbreviations}
-			\paragraph\indent
 				This section of the SRS contains definitions, acronyms and abbreviations for the terminology used to describe our system throughout this document.
 				\begin{tabular}{ |p{3cm}|p{9cm}|  }
 				\hline
@@ -75,11 +74,9 @@
 				\end{tabular}
 
 		\subsection{References}
-			\paragraph\indent
 			[1] IEEE Software Engineering Standards Committee, "IEEE Std 830-1998, IEEE Recommended Practice for Software Requirements Specifications", October 20,1998
 
 		\subsection{Overview}
-			\paragraph\indent
 				\begin{tabular}{ |p{3cm}||p{11cm}|  }
 				\hline
 				\multicolumn{2}{|c|}{This SRS document describes the NavUp system. It is divided into three major 							sections} \\
@@ -93,22 +90,17 @@
 				\end{tabular}
 
 	\section{Overall Description}
-		\paragraph\indent
 			...
 		
 		\subsection{Product Perspective}
-			\paragraph\indent
 			
 				\subsubsection{System Interfaces}
-					\paragraph\indent
 						...
 
 				\subsubsection{User Interfaces}
-					\paragraph\indent
 						...
 
 				\subsubsection{Hardware Interfaces}
-				    \paragraph\indent
 				    Hardware interfaces that we shall make use of:
 						\begin{itemize}
 						    \item An android phone or tablet.
@@ -116,12 +108,10 @@
 						\end{itemize}
 
 				\subsubsection{Software Interfaces}
-					\paragraph\indent
 						The mobile application must communicate with GPS application in order to obtain the geographical location of the user when the user is not inside a building, however if the user is inside a building – the mobile application must communicate with the router software to perform triangulation to find the exact location of the user inside the building.
 						The mobile application must communicate with the database software to lookup events and  activies of interest to the user and provide information related to pedestrian traffic on campus.
 
 				\subsubsection{Communications Interfaces}
-				    \paragraph\indent
 				    Communications that we shall make use of:
 					\begin{itemize}
 					    \item Cellular networks
@@ -131,25 +121,20 @@
 					\end{itemize}
 
 				\subsubsection{Memory}
-					\paragraph\indent
 					The system must be memory efficient due to the fact that mobile device do not have large amounts of memory and the application must be able run simultaneously with other applications.  
-                    Typical android and iOS devices have 1GB of RAM or more, therefore to prevent overloading the operating system the application must use at most 50MB of RAM while the application is runnuing.
+                    Typical android and iOS devices have 1GB of RAM or more, therefore to prevent overloading the operating system the application must use at most 50MB of RAM while the application is running.
                     The application must use 50MB of hard disk drive space.
 
 				\subsubsection{Operations}
-					\paragraph\indent
 						...
 
 				\subsubsection{Site Application Requirements}
-					\paragraph\indent
 						...
 
 		\subsection{Product Functions}
-			\paragraph\indent
             Users will be able to use their handheld devices to navigate around the campus if they having trouble to find venues. The system will assist the user to avoid pedestrian traffic and find the quickest route to their desired venue. The system will be able to locate the user’s current location either inside or outside the building by the use of the Wi-Fi access points. The system will store different types of information such as social events and activities, venues using multiple types of devices and services.The different types of information will be store on database. 
 
 		\subsection{User Characteristics}
-			\paragraph\indent
 				NavUP should have three user groups: A student or staff member, a administrator, and a guest user.
 				\subparagraph{Students and staff members}
     				\begin{itemize}
@@ -180,7 +165,6 @@
 			    \end{itemize}
 
 		\subsection{Assumptions and Dependencies}
-			\paragraph\indent
 				\begin{large}$2.5.1 $ \textbf{Assumptions}\end{large}
 	\begin{itemize}
 		\item The application is free for all users.
@@ -213,7 +197,6 @@
 	\section{Specific Requirements}
 		\paragraph\indent
 				\subsection{External Interface Requirements}
-					\paragraph\indent
 					    Since the prototype will most likely only be developed for Android systems and later expanded to iOS and other systems, this part of the specification will primarily assume the Android OS is the operating system for the system.
 					    \subparagraph{System Interfaces} 
 					     - The app will require system privileges to make use of certain features and information provided by the Android OS.
@@ -307,11 +290,9 @@
 
 
 				\subsection{Design Constraints}
-					\paragraph\indent
 						...
 	
 				\subsection{Software System attributes}
-					\paragraph\indent
 				
 				\subparagraph{Reliability}
     				The system must be able to all its functions under the stated conditions and produce correct and consistent results. 
@@ -336,7 +317,6 @@
     				    The system must be always available provided that the minimum hardware requirements are met.
 				
 				\subsection{Other Requirements}
-					\paragraph\indent
 						...
 \end{document}
 
