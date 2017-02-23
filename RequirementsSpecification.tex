@@ -109,15 +109,22 @@
 
 				\subsubsection{Hardware Interfaces}
 					\paragraph\indent
-						...
+						\begin{itemize}
+						    \item An android phone or tablet.
+						    \item An iPhone or iPad.
+						\end{itemize}
 
 				\subsubsection{Software Interfaces}
 					\paragraph\indent
 						...
 
 				\subsubsection{Communications Interfaces}
-					\paragraph\indent
-						...
+					\begin{itemize}
+					    \item Cellular networks
+					    \item Global Positioning Satellites (GPS)
+					    \item Wireless networking (WiFi)
+					    \item E-mail
+					\end{itemize}
 
 				\subsubsection{Memory}
 					\paragraph\indent
@@ -134,19 +141,70 @@
 
 		\subsection{Product Functions}
 			\paragraph\indent
-				...
+Users will be able to use their handheld devices to navigate around the campus if they having trouble to find venues. The system will assist the user to avoid pedestrian traffic and find the quickest route to their desired venue. The system will be able to locate the user’s current location either inside or outside the building by the use of the Wi-Fi access points. The system will store different types of information such as social events and activities, venues using multiple types of devices and services.The different types of information will be store on database. 
 
-		\subsection{User Charateristics}
+		\subsection{User Characteristics}
 			\paragraph\indent
-				...
+				NavUP should have three user groups: A student or staff member, a administrator, and a guest user.
+				\subparagraph{Students and staff members}
+				\begin{itemize}
+					\item Students and staff members are registered, and have student numbers.
+					\item Students are likely to be young (Below the age of 30)
+					\item Students and staff members are likely to have a high level of education.
+					\item Students and staff members should have a relatively high level of technical experience, and therefore be able to use and navigate a relatively complex app.
+				\end{itemize}
+				\subparagraph{Guest Users}
+				\begin{itemize}
+					\item Guests are unregistered.
+					\item The technical level and education of a guest is unknown. It might be difficult for them to navigate a complicated interface.
 
+				\end{itemize}
+				\subparagraph{Administrators}
+				\begin{itemize}
+					\item Administrators should have a high level of technical expertise.
+					\item Administrators likely have some form of identification, such as a student number.
+					
+				\end{itemize}
 		\subsection{Constraints}
 			\paragraph\indent
-				...
+			    \begin{itemize}
+			        \item \textbf{Cost} - We do not have the funds to pay for expensive libraries and tools.
+			        \item \textbf{Time} - Most of us are third year and honours students, and so we do not have much time to work on the project. Additionally, we only have one semester to do this.
+			        \item \textbf{Skills} - Our skills are varied, but mostly undeveloped, which limits the technical complexity of our solution.
+			        \item \textbf{Scope} - Our scope is defined as a navigation system for the University of Pretoria, and so our solution should be limited as such.
+			    \end{itemize}
 
 		\subsection{Assumptions and Dependencies}
 			\paragraph\indent
-				...
+				\begin{large}$2.5.1 $ \textbf{Assumptions}\end{large}
+	\begin{itemize}
+		\item The application is free for all users.
+		\item Users will access the application through 				  hand-held devices.
+		\item The system will be available 24/7
+		\item The system will be simple.
+		\item The system can locate a user inside and     				  outside the building.
+		\item The system can detect pedestrian traffic  				  around the campus.
+		\item User friendly system.
+		\item Users are technically competent.
+		\item Access to Wi-Fi.
+		\item Users operating system is either Android or  			 IOS.
+		\item Users will be willing to provide personal  				  information.
+
+\end{itemize}
+
+
+\begin{large}
+	$2.5.2 $ \textbf{Dependencies}
+	\end{large}
+	\begin{itemize}
+		\item Teams time and abilities. 
+		\item Feedback from stakeholders. 
+		\item A database to store user’s history, location 			  and social activities
+		\item The application needs access to Wi-Fi.
+		\item Adequate advertisement. 
+
+	\end{itemize}
+
 
 
 	\section{Specific Requirements}
@@ -155,15 +213,53 @@
 
 				\subsection{External Interface Requirements}
 					\paragraph\indent
-						...
+					    \subparagraph{System Interfaces}
 
+					    \subparagraph{User Interfaces}
+
+    					\subparagraph{Hardware Interfaces}
+    						\begin{enumerate}
+    						    \item \textbf{An android phone or tablet} \\
+    						    Android will be the most common device used, and will likely be the only device we develop a solution for. There are android devices with many varying specs, but we will focus on newer models in order to simplify the prototype. \\
+    						    Tablets are not used often for navigation, but due to the nature of Android the app will work there as well.    						    
+    						    \item \textbf{An iPhone or iPad} \\
+    						    It is possible but unlikely that we develop an app for iOS, as only a small percentage of staff and students use iPhones or iPads.
+    						\end{enumerate}
+    						
+    					\subparagraph{Software Interfaces}
+
+						\subparagraph{Communications Interfaces}
+    						\begin{enumerate}
+    						    \item \textbf{Cellular networks} \\
+    						    We will use cellular networks for downloading and uploading data and information required to use the app, such as user credentials, heat-maps, and routing. \\
+    						    
+    						    \item \textbf{Global Positioning Satellites (GPS)} \\
+    						    We might use GPS to locate the device for heat-map generation and navigation.    						    
+    						    \item \textbf{Wireless networking (WiFi)} \\
+    						    WiFi will be used where possible to download and upload data similar to cellular networks. WiFi will also be used to locate the device similar to GPS, especially inside where GPS connection may be poor.    						    
+    						    \item \textbf{E-mail} \\
+    						    We may use email for registration and login, as well as passing information on to the user.  \\
+    						    \textbf{Input}: The user's email address. \\
+    						    \textbf{Output}: An email to the user containing information.    						    
+    						    
+    						\end{enumerate}
+    						
 				\subsection{Functional Requirements}
 					\paragraph\indent
 						...
 
-				\subsection{Preformance Requirements}
-					\paragraph\indent
-						...
+				\subsection{Performance Requirements}
+				The system must:
+				\begin{itemize}
+				\item Be interactive to user input within 2 seconds.
+				\item Acquire the user's location with an accuracy within an 8m radius.
+				\item Display the user's location on a map within 3 seconds after launching.
+				\item Generate routes for users within 2 seconds.
+				\item Update the user's location every second when navigating.
+				\item Give a warning or indication if the processes take longer than anticipated.
+				\item Display a message if an error is encountered.
+				\end{itemize}
+
 
 				\subsection{Design Constraints}
 					\paragraph\indent
@@ -171,11 +267,30 @@
 	
 				\subsection{Software System attributes}
 					\paragraph\indent
-						...
-
+				
+				\subparagraph{Reliability}
+				The system must be able to all its functions under the stated conditions and produce correct and consistent results. 
+				\subparagraph{Portability}
+				\begin{itemize}
+				\item The system must be able to run on different operating environments or platforms i.e. the system must be able to run on iOS and android.
+				\item The system must be able to run on different mobile devices such as smartphones and tablets.
+				\end{itemize}
+				\subparagraph{Robustness}
+				The system must be able to perform its required functions under rough or exceptional conditions. Since the system heavily depend on newtwork connections, however the application must be able to perform basic navigation functions offline.
+				\subparagraph{Security}
+				\begin{itemize}
+				\item Only administrators must be able to add data to the system.
+				\item The location of the user must not be broadcasted or used by another application. 
+				\item All data transmitted between subsystems must be encrypted.
+				\end{itemize}
+				\subparagraph{Reusability}
+				The system must be reusable, it must permit itself to be used in a similar or different context with or without extension or customization.
+				\subparagraph{Efficiency}
+				The system must be able to perform its functions and produce desired results with minimum expenditure of time and resources.
+				\subparagraph{Availability}
+				The system must be always available provided that the minimum hardware requirements are met.
+				
 				\subsection{Other Requirements}
 					\paragraph\indent
 						...
-
-		
 \end{document}
