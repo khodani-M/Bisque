@@ -330,26 +330,81 @@ To enable the system to provide users with information regarding venues, points 
     						
 				\subsection{Functional Requirements}
 					\begin{itemize}
-					    \item \textbf{Requirement 1 (R1)}\\ The system shall allow users to create a profile to log in and out of, or it should make another allowance for their personal data to be associated with them. This data could alternatively just be stored locally on their device, similarly to a cookie for a website. The personal data is needed to store users personal searches which are needed for the Suggestions subsystem. Once the users have entered their details a request is sent to the server and they will be logged in to the system if their details were correct. If they aren't then an error will be generated declaring that their details were incorrect. \textbf{Priority : Important but not vital}
-					    \item \textbf{Requirement 2 (R2)}\\ Regardless of the task that a user is performing, the system shall always generate an error if the device has no connection to the Internet. The error will be dismissable but until a connection to the Internet is restored, the system shall only have access to partial functionality. \textbf{Priority : Critical}
-					    \item \textbf{Requirement 3 (R3)}\\ The system shall provide users with the ability to select a starting location. Users can either have the app automatically detect their location or they can manually enter a location of their choice. The Location Subsystem will have to perform a validity check on manual addresses to check that they are real. If they aren't an error will be generated declaring that the address couldn't be found. \textbf{Priority : Critical}
-					    \item \textbf{Requirement 4 (R4)}\\ The system shall provide users with the ability to select a destination. Users will have to manually enter a destination. The Location Subsystem will have to perform a validity check on the address to check that they are real.  If they aren't an error will be generated declaring that the address couldn't be found.  \textbf{Priority : Critical}
-					    \item \textbf{Requirement 5 (R5)}\\ The system shall provide users with the ability to request a route between the starting location and destination. The system will send both points to the Mapping Subsystem after they have been validated by the Location Subsystem. The mapping system will then calculate the optimal route between the two points. This route will be displayed as output to the user. If no route is available then the system will generate an error describing so. \textbf{Priority : Critical}
-					    \item \textbf{Requirement 6 (R6)}\\ The system shall create an alert for users for if the heatmaps subsystem detects there is high traffic on the shortest route or if there are other hazards on campus. The values tallied by the Heatmaps Subsystem will have to compare the real-time values to recorded averages to decide whether there is actually traffic or not. If the Heatmaps Subsytem can't receive any data from the system it should generate an error describing that the traffic feature is offline. \textbf{Priority : Important but not vital}
-					    \item \textbf{Requirement 7 (R7)}\\ The system shall also provide the option of calculating a detour in the previous scenario if the user wants. This links back to the Mapping Subsystem which can use an intermediary location to create a detour between the two points. \textbf{Priority : Important but not vital}
-					    \item \textbf{Requirement 8 (R8)}\\ The system shall suggest new locations on campus to users based on their searches. These searches will be tied to their profile and the suggestions will be built off of that. This system should generate an error if the file containing user's searches can't be accessed. \textbf{Priority : Nice to have, not vital}
-					    \item \textbf{Requirement 9 (R9)}\\ The system shall allow 'content creation' users to create events and games for other users to interact with. Additionally it will also allow lecturers to create a venue for lectures, tutorials or practicals in the case of unforeseen circumstances making it that normal arrangements don't hold. In the scenario that events can't be created or events and games can no longer be accessed, the system shall generate an appropriate error. 
-					    \textbf{Priority : Nice to have, not vital}
-					    \item \textbf{Requirement 10 (R10)} \\ The system shall allow users to interact with the events and games created by content creation users. If these events can't be accessed the system will generate
-					    an error.
-					\end{itemize}
-				    \subparagraph{Use Case Diagrams}
-				       \includegraphics{NavUp_General.png}
-				       \makebox[\textwidth]{\includegraphics[width=\paperwidth]{NavUp_General.png}}
-					   \includegraphics{NavUp_Content_Creation.png}
-					   \includegraphics{NavUp_Events_and_Games.png}
-					   \includegraphics{NavUp_Navigation.png}		   \includegraphics{Traceability_Matrix.png}
+					\subsubsection{Requirements}
+					    \item \textbf{Requirement 1 (R1)}\\ The system shall allow users to create profiles through which they will log in and out at their own discretion. A user's search history will be stored in order to aid with the functioning of the Suggestions subsystem. Once the users have entered their details a request is sent to the server and they will be logged in to the system if their details were correct. An error message will need to be displayed, should authentication fail. \\ 
+						\begin{small}
+						\textbf{Priority : Important but not vital}
+						\end{small}											    
+					    
+					   
+					    \item \textbf{Requirement 2 (R2)}\\ Regardless of the task that a user is performing, the system should display an error message if the device has no connection via cellular internet or WiFi. The user will be able to dismiss the message, but until a connection is established, the system shall only have partial functionality. \\ 
+						\begin{small}
+						\textbf{Priority : Critical}
+						\end{small}											    
+					    
+					  
+					    \item \textbf{Requirement 3 (R3)}\\ The system shall provide users with the ability to select a starting location. Users can either have the app automatically detect their location or they can manually enter a location of their choice. The Location Subsystem will have to perform a validity check on manual addresses or building names to check that they meet the requirements; that is, the locations exist and are within our navigational scope. If locations received from user input do not satisfy the aforementioned requirements an error message will be displayed, declaring that the address or building could not be found. \\ 
+						\begin{small}
+						\textbf{Priority : Critical}
+						\end{small}											    
+					    
 
+					    \item \textbf{Requirement 4 (R4)}\\ The system shall provide users with the ability to select a destination. Users will have the option to either manually enter a destination or select one from a list. The Location Subsystem will have to perform a validity check identical to the one mentioned in \textbf{(R3)}.  An error message will be displayed if the given location does not meet the requirements mentioned in \textbf{(R3)} \\ 
+						\begin{small}
+						\textbf{Priority : Critical}
+						\end{small}											    
+					    
+
+					    \item \textbf{Requirement 5 (R5)}\\ The system shall provide users with the ability to request a route between the starting location and destination. The system will send both points to the Mapping Subsystem after they have been validated by the Location Subsystem. The mapping system will then compute the optimal route between the two points. This route will be displayed as output to the user. If no route is available then the system will display an error message describing so.\\ 
+						\begin{small}
+						\textbf{Priority : Critical}
+						\end{small}											    
+					    
+
+					    \item \textbf{Requirement 6 (R6)}\\ The system shall create an alert for users if the Heatmaps subsystem detects that there is high traffic on the shortest route or if there are other hazards on campus. The values tallied by the Heatmaps Subsystem will have to compare the real-time values to recorded averages to decide whether there is actually traffic or not. If the Heatmaps Subsytem can't receive any data from the system it should give some kind of indication, showing that the traffic feature is offline. \\
+						\begin{small}
+											    \textbf{Priority : Important but not vital}
+						\end{small}					    
+
+
+					    \item \textbf{Requirement 7 (R7)}\\ The system shall also provide the user with an option to re-route in the event that the user goes off-route. This links back to the Mapping Subsystem which can use an intermediary location to create a new route when needed.\\  
+						\begin{small}
+						    \textbf{Priority : Important but not vital}						
+						\end{small}											    
+
+
+					    \item \textbf{Requirement 8 (R8)}\\ The system shall suggest new locations on campus to users based on their search history. Search history will be tied to a user's profile.\\ 
+						\begin{small}
+						 \textbf{Priority : Nice to have, not vital}
+						\end{small}											    
+					    
+
+					    \item \textbf{Requirement 9 (R9)}\\ The system shall allow administrators to create events and games for other users to interact with. Additionally, it could allow lecturers to send a push notification to students for a new venue in the case of unforeseen circumstances. In the scenario that events can't be created or events and games can no longer be accessed, the system shall display an appropriate error. \\
+					    \begin{small}
+					    \textbf{Priority : Nice to have, not vital}					    
+					    \end{small}
+
+
+					    \item \textbf{Requirement 10 (R10)} \\ The system shall allow users to interact with the events and games created by content creation users. If these events cannot be accessed the system will generate an error.
+					    \begin{small}
+					    \\ \textbf{Priority : Nice to have, not vital}					    					    
+					    \end{small}
+
+
+
+
+					\end{itemize}
+				    \subsubsection{Use Case Diagrams}
+						\begin{center}
+							 \includegraphics[scale = 0.8]{NavUp_General.png}
+					   \includegraphics[scale=0.7]{NavUp_Content_Creation.png}
+					   \includegraphics[scale=0.8]{NavUp_Events_and_Games.png}
+					   \includegraphics[scale=0.8]{NavUp_Navigation.png}
+					   \includegraphics[scale=0.8]{Traceability_Matrix.png}
+
+						\end{center}
+				      
+				 \newpage      
 				\subsection{Performance Requirements}
     				The system must:
     				\begin{itemize}
@@ -366,108 +421,102 @@ To enable the system to provide users with information regarding venues, points 
 				\subsection{Design Constraints}
 				\paragraph\indent
 				This application is constrained in two main areas, namely hardware and software. We will look at these two areas separately.
-				 \subparagraph{Hardware:}
+				 \subsubsection{Hardware}
 					\begin{enumerate}
-						 \item
-						Application is constrained to the device’s ability to connect to the internet. 
-						 \item
-						The effectiveness of the device is constrained to its ability to communicate with the WI-FI network on campus.	
-						 \item
-						The application is also constrained to the device’s ability to display the map and navigation system. 
-						 \item
-						The ability of the device to run the application is also limited to the hardware available. 
-						 \item
-						The speed the application can perform at is constrained by the processing power and available memory of the devise.
+						 \item Application is constrained to the device’s ability to connect to the internet. 
+						 \item The effectiveness of the device is constrained to its ability to communicate with the WI-FI network on campus.	
+						 \item The application is also constrained to the device’s ability to display the map and navigation system. 
+						 \item The ability of the device to run the application is also limited to the hardware, such as processing power that is available. 
+						 \item The speed the application can perform at is constrained by the processing power and available memory of the device.
 					\end{enumerate}
-				 \subparagraph{Hardware:}
+				 \subsubsection{Software}
 					\begin{enumerate}
-					\item
-					The device must be able to locate its position to an accuracy of 3m. 
+					\item The system must be able to locate its position to an accuracy of 3m.
+					\item The system must be able to operate efficiently.
+					\item The system must be able to perform all calculations timeously.
+					\item The system must be able to keep all user information secure.
 					\end{enumerate}
-					 \subparagraph{Other:}
+					 \subsubsection{Other}
 					\begin{enumerate}
 					\item
 					This system’s ability to give updates and events is constrained to external management and maintenance. (An administrator)   
 					\item
-					The application is constrained to the University of Pretoria’s campuses.
+					The application is constrained to the University of Pretoria’s campus.
 					\end{enumerate}
+					
+									\newpage
 				\subsection{Software System attributes}
-					\paragraph\indent
 				
-				\subparagraph{Reliability}
-    				The system must be able to all its functions under the stated conditions and produce correct and consistent results. 
+				\subsubsection{Reliability}
+    				The system must be able to perform all its functions under the stated conditions and produce correct and consistent results. 
     				
-    			\subparagraph{Portability}
+				\subsubsection{Portability}
     				\begin{itemize}
         				\item The system must be able to run on different operating environments or platforms i.e. the system must be able to run on iOS and android.
         				\item The system must be able to run on different mobile devices such as smartphones and tablets.
     				\end{itemize}
     				
-    			\subparagraph{Robustness}
-    				The system must be able to perform its required functions under rough or exceptional conditions. Since the system heavily depend on newtwork connections, however the application must be able to perform basic navigation functions offline.
+				\subsubsection{Robustness}
+    			\begin{itemize}
+    			\item The system must be able to perform its required functions under rough or exceptional conditions.
+    			\item The application must have some form of basic functionality when it is offline.
+    			\end{itemize}
+
     				
-				\subparagraph{Security}
+				\subsubsection{Security}
     				\begin{itemize}
         				\item Only administrators must be able to add data to the system.
-        				\item The location of the user must not be broadcasted or used by another application. 
-        				\item All data transmitted between subsystems must be encrypted.
+        				\item The location of the user must be kept private. 
+        				\item All data must be transmitted in a securely.
     				\end{itemize}
     				
-				\subparagraph{Reusability}
-				    The system must be reusable, it must permit itself to be used in a similar or different context with or without extension or customization.
+				\subsubsection{Reusability}
+				    The subsystems stated in this document should be implemented in a manner that allows for them to be reused in a different context. For this to be possible, the design should be modular and achieve loose coupling.
 				    
-				\subparagraph{Efficiency}
-				    The system must be able to perfor m its functions and produce desired results with minimum expenditure of time and resources.
+				\subsubsection{Efficiency}
+				    The system must be able to perform various functions and produce desired results with minimum expenditure of time and resources.
 				    
-				\subparagraph{Availability}
-				    The system must be always available provided that the minimum hardware requirements are met
+				\subsubsection{Availability}
+				    The system must be always available provided that the minimum hardware requirements are met.
     				    
-				\subparagraph{Accuracy}
+				\subsubsection{Accuracy}
     				\begin{itemize}
 							\item
-							The application must be accurate up to 3m to function indoors but can be less accurate outdoors.
+							The application must be accurate up to 3m to function outdoors but can be less accurate indoors.
 							\item
-							The heat maps can combine known statistics as well as live feed to be more accurate. 
+							An average value can be used to determine population density in an area at a particular time. 
 						\end{itemize}
 						
-				\subparagraph{Adaptability}
-					\begin{itemize}
-							\item
+				\subsubsection{Adaptability}
+				
 							This application must be able to adapt to:
 							  \begin{itemize}
-								\item
-								A change in heat map patterns, events like strikes, and a change in router locations.
-								\item
-								A loss of signal.
+								\item A change in heat map patterns
+								\item Events, such as strikes
+								\item Changes in router locations.
+								\item A loss of signal.
 							\end{itemize}
-						\end{itemize}
 						
-				\subparagraph{Manageability}
+				\subsubsection{Manageability}
 					\begin{itemize}
-							\item
-							It is vitally important for this application to have an interface for a managing team.
-							\item
-							Departments need to update events. 
-							\item
-							New locations need to be added.
+							\item We will make use of open-source libraries to ensure that there is less code to maintain.
+							\item The system should be developed in a manner that will allow developers to extend features with ease.
 						\end{itemize}
 						
-				\subparagraph{Interoperability}
+				\subsubsection{Interoperability}
 					\begin{itemize}
 							\item
 							The application must function on Android as well as IOS.
 						\end{itemize}
-				
+
 				\subsection{Other Requirements}
 					\paragraph\indent
-						\begin{enumerate}
-						 \item
-						The Application needs to be able to learn the habits of the user and guide him/her accordingly. 
+						\begin{itemize}
 						 \item
 						The application needs to support custom destinations and needs to be able to store these destinations for later use.
 						 \item
-						The application must still be able to give possible routes in the absence of Internet connection.
+						The application must still be able to complete navigation en-route in the absence of an Internet connection.
 						 \item
-						The application must be able to determine a route from one point to another, even if the neither of the points are the user’s position.
-					\end{enumerate}		
+						The application must be able to determine a route from one point to another, even if none of the points are the user’s current position.
+					\end{itemize}		
 \end{document}
